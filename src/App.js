@@ -3,6 +3,12 @@ import { Canvas, useThree, useLoader, useFrame } from 'react-three-fiber';
 import { MathUtils, TextureLoader } from 'three';
 import { Suspense, useEffect, useRef, useState } from 'react';
 
+
+const loader = new TextureLoader();
+const milesTexture = loader.load('/miles.jpg');
+const moonTexture = loader.load('/moon.jpg');
+const normalTexture = loader.load('/normal.jpg');
+
 export default function App() {
 
   const t = document.body.getBoundingClientRect().top;
@@ -55,11 +61,11 @@ function SetTextures() {
   const moonRef = useRef();
   const { camera } = useThree();
 
-  const loader = new TextureLoader();
+  // const loader = new TextureLoader();
 
-  const milesTexture = loader.load('/miles.jpg');
-  const moonTexture = loader.load('/moon.jpg');
-  const normalTexture = loader.load('/normal.jpg');
+  // const milesTexture = loader.load('/miles.jpg');
+  // const moonTexture = loader.load('/moon.jpg');
+  // const normalTexture = loader.load('/normal.jpg');
 
    document.body.onscroll = () => {
     const t = document.body.getBoundingClientRect().top;
