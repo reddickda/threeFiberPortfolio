@@ -1,4 +1,5 @@
 import { Canvas } from "@react-three/fiber";
+import { Link } from "react-router-dom";
 
 export default function ThreeDimensionalScene() {
     //sets html to not be rendered
@@ -12,5 +13,8 @@ export default function ThreeDimensionalScene() {
                 <meshStandardMaterial />
             </mesh>
         </Canvas>
+        <Link to="/">
+            <button id="homeButton" className="ui">Go Back Home</button>
+        </Link>
     </div>);
 }
