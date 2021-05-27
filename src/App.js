@@ -3,13 +3,15 @@ import {
   Route
 } from "react-router-dom";
 import HomeScreen from './HomeScreen';
+import ThreeDimensionalScene from './ThreeDimensionalScene';
 
 export default function App() {
 
   return (
     <div>
       <Switch>
-        <Route path="/" exact component={HomeScreen} />
+        <Route path="/" exact> <HomeScreen/></Route>
+        <Route path="/three" exact> <ThreeDimensionalScene /></Route>
       </Switch>
     </div>
   );

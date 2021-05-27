@@ -2,8 +2,7 @@ import { Canvas, useThree } from 'react-three-fiber';
 import { MathUtils, TextureLoader } from 'three';
 import { useRef } from 'react';
 import {
-  Switch,
-  Route
+  useHistory
 } from "react-router-dom";
 
 
@@ -13,7 +12,13 @@ const moonTexture = loader.load('/moon.jpg');
 const normalTexture = loader.load('/normal.jpg');
 
 export default function HomeScreen() {
-
+  const history = useHistory();
+  
+  //sets html to be rendered
+  document.getElementById("main").style.display = null;
+  document.getElementById("three").onclick = () => {
+    history.push("/three");
+  }
     return (
         <>
         <Canvas camera={{ fov: 75, position: [0, 0, 0] }} pixelRatio={window.devicePixelRatio}> 
@@ -64,24 +69,26 @@ export default function HomeScreen() {
     const moonRef = useRef();
     const { camera } = useThree();
   
-    // const loader = new TextureLoader();
-  
-    // const milesTexture = loader.load('/miles.jpg');
-    // const moonTexture = loader.load('/moon.jpg');
-    // const normalTexture = loader.load('/normal.jpg');
-  
+    //maybe put this in a useEffect?
+    //https://stackoverflow.com/questions/56541342/react-hooks-why-is-current-null-for-useref-hook
      document.body.onscroll = () => {
       const t = document.body.getBoundingClientRect().top;
-      moonRef.current.rotation.x += 0.05;
-      moonRef.current.rotation.y += 0.075;
-      moonRef.current.rotation.z += 0.05;
-  
-      milesRef.current.rotation.y += .01;
-      milesRef.current.rotation.z += .01;
-  
-      camera.position.z = t * -0.01;
-      camera.position.x = t * -0.0002;
-      camera.rotation.y = t * -0.0002;
+      //null checks because on history push the component is re rendered? (check this)
+      //and the function is still called ?
+      if(moonRef != null && moonRef.current != null){
+        moonRef.current.rotation.x += 0.05;
+        moonRef.current.rotation.y += 0.075;
+        moonRef.current.rotation.z += 0.05;
+      }
+      if(milesRef != null && milesRef.current != null){
+        milesRef.current.rotation.y += .01;
+        milesRef.current.rotation.z += .01;
+      }
+      if(camera != null && camera.position != null){
+        camera.position.z = t * -0.01;
+        camera.position.x = t * -0.0002;
+        camera.rotation.y = t * -0.0002;
+      }
     };
   
     return(
