@@ -1,5 +1,19 @@
 @import url("https://use.typekit.net/jmk3xov.css");
 
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+:root {
+  --dark-bg: rgba(15, 15, 15, 0.95);
+  --spacing: 350px;
+
+  font-family: brandon-grotesque, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 
 #root {
     position: fixed;
@@ -7,12 +21,7 @@
     height: 100%;
     top: 0;
     left: 0;
-    --dark-bg: rgba(15, 15, 15, 0.95);
-    --spacing: 350px;
-  
-    font-family: brandon-grotesque, sans-serif;
-    font-weight: 400;
-    font-style: normal;
+   
   }
 
   main {

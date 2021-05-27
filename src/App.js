@@ -1,21 +1,20 @@
 import * as THREE from 'three'
 import { Canvas, useThree, useLoader, useFrame } from 'react-three-fiber';
 import { MathUtils, TextureLoader } from 'three';
-import { Suspense, useEffect } from 'react';
+import { Suspense, useEffect, useRef, useState } from 'react';
 
 export default function App() {
 
-
+  const t = document.body.getBoundingClientRect().top;
 
   return (
-      <Canvas camera={{ fov: 75, position: [-3, 0, 30] }} pixelRatio={window.devicePixelRatio}> 
+      <Canvas camera={{ fov: 75, position: [0, 0, 0] }} pixelRatio={window.devicePixelRatio}> 
         <SetBackGround />
         <pointLight position={[5,5,5]} color="0xffffff"/>
         <ambientLight intensity={0.2}/>
         {addStars()}
         <SetBackGround />
-        <SetMilesTexture />
-        <SetMoonTexture />
+        <SetTextures />
       </Canvas >
   );
 }
@@ -42,36 +41,50 @@ function addStars() {
 function SetBackGround() {
   const loader = new TextureLoader();
 
-  const backgroundTexture = loader.load('/gridmountain.jpg');
+  const backgroundTexture = loader.load('/coolgradient.jpg');
   const {scene} = useThree();
 
   scene.background= backgroundTexture;
   return null;
 }
 
-function SetMilesTexture() {
+//sets the moon and miles textures in the sphere and cube
+//sets rotation with scrolling on body
+function SetTextures() {
+  const milesRef = useRef();
+  const moonRef = useRef();
+  const { camera } = useThree();
+
   const loader = new TextureLoader();
 
   const milesTexture = loader.load('/miles.jpg');
-
-  return(
-    <mesh position={[2,0,-5]}>
-      <boxBufferGeometry args={[3,3,3]}/>
-      <meshBasicMaterial map={milesTexture} />
-    </mesh>
-  );
-}
-
-function SetMoonTexture() {
-  const loader = new TextureLoader();
-
   const moonTexture = loader.load('/moon.jpg');
   const normalTexture = loader.load('/normal.jpg');
 
+   document.body.onscroll = () => {
+    const t = document.body.getBoundingClientRect().top;
+    moonRef.current.rotation.x += 0.05;
+    moonRef.current.rotation.y += 0.075;
+    moonRef.current.rotation.z += 0.05;
+
+    milesRef.current.rotation.y += .01;
+    milesRef.current.rotation.z += .01;
+
+    camera.position.z = t * -0.01;
+    camera.position.x = t * -0.0002;
+    camera.rotation.y = t * -0.0002;
+  };
+
   return(
-    <mesh position={[-10,0,20]}>
-      <sphereBufferGeometry args={[3,32,32]}/>
-      <meshStandardMaterial map={moonTexture} normalMap={normalTexture} />
+    <>
+    <mesh ref={milesRef} position={[2,0,-10]}>
+      <boxBufferGeometry args={[3,3,3]}/>
+      <meshBasicMaterial map={milesTexture} />
     </mesh>
-  )
+    <mesh ref={moonRef} position={[-10,0,20]}>
+    <sphereBufferGeometry args={[3,32,32]}/>
+    <meshStandardMaterial map={moonTexture} normalMap={normalTexture} />
+  </mesh>
+  </>
+  );
 }
