@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import {
   Switch,
   Route
@@ -10,7 +11,8 @@ export default function App() {
   return (
     <div>
       <Switch>
-        <Route path="/" exact> <HomeScreen/></Route>
+        {/* style the suspense fallback */}
+        <Route path="/" exact> <Suspense fallback={<div>Loading...</div>}><HomeScreen/></Suspense></Route>
         <Route path="/three" exact> <ThreeDimensionalScene /></Route>
       </Switch>
     </div>

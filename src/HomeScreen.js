@@ -1,21 +1,21 @@
-import { Canvas, useThree } from 'react-three-fiber';
+import { Canvas, useThree, useLoader } from 'react-three-fiber';
 import { MathUtils, TextureLoader } from 'three';
-import { useRef } from 'react';
+import { useRef, useState, useEffect, Suspense } from 'react';
 import {
   useHistory
 } from "react-router-dom";
 
-
-const loader = new TextureLoader();
-const milesTexture = loader.load('/miles.jpg');
-const moonTexture = loader.load('/moon.jpg');
-const normalTexture = loader.load('/normal.jpg');
-
 export default function HomeScreen() {
   const history = useHistory();
-  
+
+  const milesTexture = useLoader(TextureLoader, '/miles.jpg');
+  const moonTexture = useLoader(TextureLoader, '/moon.jpg');
+  const normalTexture = useLoader(TextureLoader, '/normal.jpg');
+
   //sets html to be rendered
   document.getElementById("main").style.display = null;
+
+  //looks for 'three' which is a button and changes the route to change scene
   document.getElementById("three").onclick = () => {
     history.push("/three");
   }
@@ -27,11 +27,11 @@ export default function HomeScreen() {
           <ambientLight intensity={0.2}/>
           {addStars()}
           <SetBackGround />
-          <SetTextures />
+          <SetTextures textures={[milesTexture, moonTexture, normalTexture]}/>
         </Canvas >
         </>
     );
-  }
+   }
   
   // creates 200 stars, adds them to a list and returns them all as a group
   function addStars() {
@@ -64,7 +64,7 @@ export default function HomeScreen() {
   
   //sets the moon and miles textures in the sphere and cube
   //sets rotation with scrolling on body
-  function SetTextures() {
+  function SetTextures({ textures }) {
     const milesRef = useRef();
     const moonRef = useRef();
     const { camera } = useThree();
@@ -95,11 +95,11 @@ export default function HomeScreen() {
       <>
       <mesh ref={milesRef} position={[2,0,-10]}>
         <boxBufferGeometry args={[3,3,3]}/>
-        <meshBasicMaterial map={milesTexture} />
+        <meshBasicMaterial map={textures[0]} />
       </mesh>
       <mesh ref={moonRef} position={[-10,0,20]}>
       <sphereBufferGeometry args={[3,32,32]}/>
-      <meshStandardMaterial map={moonTexture} normalMap={normalTexture} />
+    <meshStandardMaterial map={textures[1]} normalMap={textures[2]} />
     </mesh>
     </>
     );
