@@ -1,6 +1,6 @@
-import { Canvas, useThree, useLoader } from 'react-three-fiber';
+import { Canvas, useThree, useLoader } from '@react-three/fiber';
 import { MathUtils, TextureLoader } from 'three';
-import { useRef, useState, useEffect, Suspense } from 'react';
+import { useRef } from 'react';
 import {
   useHistory
 } from "react-router-dom";

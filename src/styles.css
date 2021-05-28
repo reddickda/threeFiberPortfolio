@@ -106,3 +106,9 @@
     color: rgb(0, 0, 0);
     z-index: 999;
   }
+
+  .anim {
+    width:100vw;
+    height: 100vh;
+    background-color: black;
+  }
