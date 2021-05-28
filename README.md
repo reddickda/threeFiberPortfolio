@@ -1,6 +1,6 @@
 # Personal react-three-fiber portfolio
 
-The purpose of this project is to be my personal portfolio where I can add any 3D design/scenes I like using the Routing
+The purpose of this project is to be my personal portfolio where I can add any 3D design/scenes I like using routing
 
 ## The Stack
 
@@ -8,6 +8,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 This project uses React with [react-three-fiber](https://github.com/pmndrs/react-three-fiber) and other libraries related to [three.js](https://threejs.org/) in tandem with raw html and css
 
 ### `Routing technique for more scenes`
+I use components as my 3D "scenes" and use react routing to be able to navigate betweeen all of the 3D work. I think its neat.
 
 If there is a desire, I will release a template version of this project so that others can just clone this repo and create their own cool 3D portfolio sites.
 
@@ -16,3 +17,5 @@ If there is a desire, I will release a template version of this project so that 
 
 Thanks,
 DR
+
+Note: I am on the free tier of heroku with my site, so give it some time and a refresh before it will fully load.
