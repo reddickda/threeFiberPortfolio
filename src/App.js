@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import HomeScreen from './HomeScreen';
 import ThreeDimensionalScene from './ThreeDimensionalScene';
+import Skatepark from './Skatepark';
 
 export default function App() {
 
@@ -14,6 +15,7 @@ export default function App() {
         {/* style the suspense fallback */}
         <Route path="/" exact> <Suspense fallback={<div>Loading...</div>}><HomeScreen/></Suspense></Route>
         <Route path="/three" exact> <ThreeDimensionalScene /></Route>
+        <Route path="/sawmill" exact> <Skatepark /></Route>
       </Switch>
     </div>
   );

@@ -19,6 +19,11 @@ export default function HomeScreen() {
   document.getElementById("three").onclick = () => {
     history.push("/three");
   }
+
+  document.getElementById("sawmill").onclick = () => {
+    history.push("/sawmill")
+  }
+
     return (
         <>
         <Canvas camera={{ fov: 75, position: [0, 0, 0] }} pixelRatio={window.devicePixelRatio}> 
