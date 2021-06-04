@@ -4,13 +4,14 @@ import { useRef } from 'react';
 import {
   useHistory
 } from "react-router-dom";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
 export default function HomeScreen() {
   const history = useHistory();
-
   const milesTexture = useLoader(TextureLoader, '/miles.jpg');
   const moonTexture = useLoader(TextureLoader, '/moon.jpg');
   const normalTexture = useLoader(TextureLoader, '/normal.jpg');
+  const donut = useLoader(GLTFLoader, "/doughnut-P2b.glb");
 
   //sets html to be rendered
   document.getElementById("main").style.display = null;
@@ -104,4 +105,3 @@ export default function HomeScreen() {
     </>
     );
   }
-  
