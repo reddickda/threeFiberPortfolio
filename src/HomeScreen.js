@@ -1,17 +1,32 @@
-import { Canvas, useThree, useLoader } from '@react-three/fiber';
+import { Canvas, useThree, useLoader, useFrame } from '@react-three/fiber';
 import { MathUtils, TextureLoader } from 'three';
-import { useRef } from 'react';
+import { useRef, useEffect, useMemo } from 'react';
 import {
   useHistory
 } from "react-router-dom";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import * as THREE from "three";
 
 export default function HomeScreen() {
+  //history needs to be highest level component
   const history = useHistory();
-  const milesTexture = useLoader(TextureLoader, '/miles.jpg');
-  const moonTexture = useLoader(TextureLoader, '/moon.jpg');
-  const normalTexture = useLoader(TextureLoader, '/normal.jpg');
+
+  return(
+  <Canvas pixelRatio={window.devicePixelRatio} camera={{position:[0,0,50], fov:75} } >
+    <Content history={history}/>
+  </Canvas>);
+}
+
+function Content( { history }) {
+  
   const donut = useLoader(GLTFLoader, "/doughnut-P2b.glb");
+
+  const cameraRef = useRef();
+  const { set, size } = useThree();
+
+  useEffect(() => {
+    set(cameraRef.current)}, [])
+  useFrame(() => cameraRef.current.updateMatrixWorld())
 
   //sets html to be rendered
   document.getElementById("main").style.display = null;
@@ -22,16 +37,40 @@ export default function HomeScreen() {
   }
     return (
         <>
-        <Canvas camera={{ fov: 75, position: [0, 0, 0] }} pixelRatio={window.devicePixelRatio}> 
-          <SetBackGround />
-          <pointLight position={[5,5,5]} color="0xffffff"/>
-          <ambientLight intensity={0.2}/>
-          {addStars()}
-          <SetBackGround />
-          <SetTextures textures={[milesTexture, moonTexture, normalTexture]}/>
-        </Canvas >
+        <perspectiveCamera 
+          ref={cameraRef} 
+          aspect={size.width / size.height}
+          radius={(size.width + size.height) / 4}
+          onUpdate={self => self.updateProjectionMatrix()}/>
+        <MainScene />
+        <HeadsUpDisplay />
         </>
     );
+   }
+
+   function MainScene() {
+    const milesTexture = useLoader(TextureLoader, '/miles.jpg');
+    const moonTexture = useLoader(TextureLoader, '/moon.jpg');
+    const normalTexture = useLoader(TextureLoader, '/normal.jpg');
+    // const backgroundTexture = loader.load('/coolgradient.jpg');
+    const backgroundTexture = useLoader(TextureLoader, "/coolgradient.jpg")
+
+    const sceneRef = useRef()
+    const { camera } = useThree()
+    if(sceneRef.current != undefined) {
+      // sceneRef.current.background = backgroundTexture;
+    }
+
+    useFrame(({ gl }) => void ( gl.render(sceneRef.current, camera)), 100)
+
+     return(
+       <scene ref={sceneRef}>
+        <pointLight position={[5,5,5]} color="0xffffff"/>
+        <ambientLight intensity={0.2}/>
+        {addStars()}
+        <SetTextures textures={[milesTexture, moonTexture, normalTexture]}/>
+      </scene>
+     );
    }
   
   // creates 200 stars, adds them to a list and returns them all as a group
@@ -52,24 +91,12 @@ export default function HomeScreen() {
     )
   }
   
-  //sets the scene background
-  function SetBackGround() {
-    const loader = new TextureLoader();
-  
-    const backgroundTexture = loader.load('/coolgradient.jpg');
-    const {scene} = useThree();
-  
-    scene.background= backgroundTexture;
-    return null;
-  }
-  
   //sets the moon and miles textures in the sphere and cube
   //sets rotation with scrolling on body
   function SetTextures({ textures }) {
     const milesRef = useRef();
     const moonRef = useRef();
     const { camera } = useThree();
-  
     //maybe put this in a useEffect?
     //https://stackoverflow.com/questions/56541342/react-hooks-why-is-current-null-for-useref-hook
      document.body.onscroll = () => {
@@ -104,4 +131,37 @@ export default function HomeScreen() {
     </mesh>
     </>
     );
+  }
+
+  function HeadsUpDisplay() {
+    const sceneRef = useRef()
+    const { camera } = useThree()
+
+    // const sceneMemoized = useMemo(() => {
+    //   const scene = new THREE.Scene();
+    //   const geometry = new THREE.CircleGeometry(1, 32);
+    //   const material = new THREE.MeshBasicMaterial({ color: "red" });
+    //   const mesh = new THREE.Mesh(geometry, material);
+    //   mesh.position.set(0,0-10);
+    //   scene.add(mesh);
+    //   return scene;}, []
+    // );
+
+    // useEffect(() => {
+    //   if (sceneRef.current) {
+    //     sceneRef.current.copy(sceneMemoized, true);
+    //     sceneRef.current.updateMatrixWorld(true);
+    //     console.log(sceneRef.current);
+    //   }
+    // }, []);
+    console.log(sceneRef.current);
+    useFrame(({ gl }) => void ((gl.autoClear = false), gl.clearDepth(), gl.render(sceneRef.current, camera)), 10)
+    return <scene ref={sceneRef} position={[0,0,10]}>
+      <mesh position={[0,0,0]}>
+        <boxBufferGeometry  attach="geometry" args={[3,3,3]} />
+        <meshStandardMaterial color={"orange"}
+        />
+      </mesh>
+      <ambientLight />
+    </scene>
   }
