@@ -55,15 +55,19 @@ export default function HomeScreen() {
       //  vector.add(camera.position);
       // boxref.current.position.set(vector.x, vector.y, vector.z)
       // boxref.current.setRotationFromQuaternion(camera.quaternion)
-var t = .01;
 
       donutRef.current.position.copy( camera.position );
       donutRef.current.rotation.copy( camera.rotation );
       donutRef.current.updateMatrix();
       donutRef.current.translateZ( - 4 );
+      if(window.innerWidth < 500) {
+        donutRef.current.translateX(.8);
+      }else{
+        donutRef.current.translateX(4);
+      }
       //will need to deal with screen size
       // donutRef.current.translateX(w/10);
-      // donutRef.current.translateY(2/h)
+      donutRef.current.translateY(2)
       donutRef.current.rotation.z+=clock.getElapsedTime()*.5;
     }    
    })
