@@ -38,7 +38,6 @@ export default function HomeScreen() {
     const donut = useLoader(GLTFLoader, "/doughnut-P2b.glb");
     const donutRef = useRef();
 
-
     const sceneRef = useRef()
     const { camera } = useThree()
     // if(sceneRef.current != undefined) {
@@ -62,8 +61,9 @@ var t = .01;
       donutRef.current.rotation.copy( camera.rotation );
       donutRef.current.updateMatrix();
       donutRef.current.translateZ( - 4 );
-      donutRef.current.translateX(7);
-      donutRef.current.translateY(2)
+      //will need to deal with screen size
+      // donutRef.current.translateX(w/10);
+      // donutRef.current.translateY(2/h)
       donutRef.current.rotation.z+=clock.getElapsedTime()*.5;
     }    
    })
