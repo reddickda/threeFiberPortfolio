@@ -1,6 +1,10 @@
 export const devlogdata =
 [
     {
+        "title": "Disclaimer",
+        "content": "I am aware that this does not run as smooth or look as good on mobile right now. There is an issue with Ongesturedown from a phone and scrolling with react and how it handles rerendering. This and formatting issues for mobile I have not addressed can make the scrolling+html+3D scene together it look wonky at times."
+    },
+    {
         "title": "Starting the project:",
         "content": "I have been a programming for years, but recently at work I have started to do more front end than back end. This led to a deep dive into Javascript and React as a framework. Learning this new stack was great, it’s a marketable skill, but the development itself didn’t excite me. I got into computer science because I wanted to make video games, and front end development wasn't quite cutting it. Jump to the present: I discover three.js, a Javascript library on top of WebGL. Take it one step further, I discover React three fiber, a react component library on  TOP of three.js. This was a blessing - I could take what I have become good at from work, and apply it to something directly related to my passion - 3D development."
     },
