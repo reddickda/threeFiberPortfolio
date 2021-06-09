@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function DevLog() {
     const classes = useStyles();
-    // document.getElementById("root").style.overflow = "auto";
+    document.getElementById("root").style.overflow = "auto";
     document.getElementById("main").style.display = "none";
     return (
         <Fragment>
