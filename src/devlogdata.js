@@ -2,7 +2,7 @@ export const devlogdata =
 [
     {
         "title": "Starting the project:",
-        "content": "I have been a programming for years, but recently at work I have started to do more front end than back end. This led to a deep dive into Javascript and React as a framework. Learning this new stack was great, it’s a marketable skill, but the development itself didn’t excite me. I got into computer science because I wanted to make video games, and front end development wasn't quite cutting it. Cut to the present: I discover three.js, a Javascript library on top of WebGL. Take it one step further, I discover React three fiber, a react component library on  TOP of three.js. This was a blessing - I could take what I have become good at from work, and apply it to something directly related to my passion - 3D development."
+        "content": "I have been a programming for years, but recently at work I have started to do more front end than back end. This led to a deep dive into Javascript and React as a framework. Learning this new stack was great, it’s a marketable skill, but the development itself didn’t excite me. I got into computer science because I wanted to make video games, and front end development wasn't quite cutting it. Jump to the present: I discover three.js, a Javascript library on top of WebGL. Take it one step further, I discover React three fiber, a react component library on  TOP of three.js. This was a blessing - I could take what I have become good at from work, and apply it to something directly related to my passion - 3D development."
     },
     {
         "title": "First steps - learning three.js:",
@@ -14,7 +14,7 @@ export const devlogdata =
     },
     {
         "title": "No more material-ui, combining html and the 3D scene in one:",
-        "content": "I did not want to lean so heavily on material-ui as it wasn't showcasing what I wanted to website to actually do from the beginning. Cut to pure happenstance and YouTube recommends me a fantastic video about using css-grid and three.js to have a cool scrolling webpage overlaid on top of a full 3D scene using html. I was absolutely sold and thrilled with the results. So I decided to go with this as my homepage, convert it to react three fiber, and add routing just as I had before so I can still have other 3D scenes. Converting this from three.js to react three fiber was not an easy task so that was when I decided to make the project public to spread the beautiful world of 3D development on webpages throughout the internet."
+        "content": "I did not want to lean so heavily on material-ui as it wasn't showcasing what I wanted to do from the beginning. Thanks to pure happenstance, YouTube recommends me a fantastic video about using css-grid and three.js to have a cool scrolling webpage of html overlaid on top of a full 3D scene. I was absolutely sold and thrilled with the results. So I decided to go with this as my homepage, convert it to react three fiber, and add routing just as I had before so I can still have other 3D scenes. Converting this from three.js to react three fiber was not an easy task so that was when I decided to make the project public to spread the beautiful world of 3D development on webpages throughout the internet."
     },
     {
         "title": "Html button to a new 3D scene with routing:",
@@ -26,7 +26,7 @@ export const devlogdata =
     },
     {
         "title": "The custom domain problem:",
-        "content": "I had a custom domain through wix that I wanted to use for my website so I didn’t have to use the provided herokuapp domain. Unfortunately I found I couldn't use the wix domain outside of the wix service, so I transferred it to godaddy for some money. Turns out godaddy doesn't provide the needed records to link it to my deployed heroku app either, I didn’t do enough research on this before but I was stubborn and didn’t want to spend more money on the issue. I ended up paying for heroku monthly for the ssl capability, changing the cname record of the godaddy url and enabling forwarding. This isn't a perfect solution but it works and I am happy with it."
+        "content": "I had a custom domain through wix that I wanted to use for my website so I didn’t have to use the provided herokuapp domain. Unfortunately I found I couldn't use the wix domain outside of the wix service, so I transferred it to godaddy for some money. Turns out godaddy doesn't provide the needed records to link it to my deployed heroku app either, I didn’t do enough research on this before but I was stubborn and didn’t want to spend more money on the issue. I ended up paying for heroku monthly for the ssl capability (and the 24/7 uptime), changing the cname record of the godaddy url and enabling forwarding. This isn't a perfect solution but it works and I am happy with it."
     },
     {
         "title": "How to display the dev log:",
