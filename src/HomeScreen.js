@@ -1,11 +1,10 @@
 import { Canvas, useThree, useLoader, useFrame } from '@react-three/fiber';
-import { Euler, MathUtils, Quaternion, TextureLoader, Vector3 } from 'three';
-import { useRef, useEffect, useMemo } from 'react';
+import { MathUtils, TextureLoader  } from 'three';
+import { useRef } from 'react';
 import {
   useHistory
 } from "react-router-dom";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import * as THREE from "three";
 
 ///make element child of the camera and make it forward OR
 
@@ -22,6 +21,10 @@ export default function HomeScreen() {
   //looks for 'three' which is a button and changes the route to change scene
   document.getElementById("three").onclick = () => {
     history.push("/three");
+  }
+
+  document.getElementById("devlog").onclick = () => {
+    history.push("/devlog");
   }
     return (
       <Canvas pixelRatio={window.devicePixelRatio} camera={{position:[0,0,0], fov:75} } >
