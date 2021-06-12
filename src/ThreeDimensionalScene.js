@@ -3,28 +3,7 @@ import { Canvas, useLoader, useFrame, useThree, extend  } from "@react-three/fib
 import { Link } from "react-router-dom";
 import { TextureLoader } from 'three';
 import { Suspense, useMemo, useCallback, useRef } from 'react';
-import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
-
-extend({OrbitControls})
-
-function CameraControls(){
-    const {
-      camera,
-      gl: {domElement}
-    } = useThree();
-  
-    const controlsRef = useRef();
-    useFrame(() => controlsRef.current.update())
-  
-    return (
-      <orbitControls
-        ref={controlsRef}
-        args={[camera, domElement]}
-        autoRotate
-        autoRotateSpeed={-0.2}
-      />
-    );
-  }
+import Controls from "./Controls"; 
 
 function Points() {
     const cicleTexture = useLoader(TextureLoader, '/circle.png');
@@ -67,6 +46,7 @@ function Points() {
             let z = sep * (zi - count / 2);
     
             positions[i + 1] = graph(x, z);
+            //every 3rd item aka y
             i += 3;
           }
         }
@@ -120,7 +100,7 @@ function AnimationCanvas() {
         <Suspense fallback={null}>
           <Points />
         </Suspense>
-        <CameraControls/>
+        <Controls/>
       </Canvas>
     );
   }

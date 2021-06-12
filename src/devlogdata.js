@@ -38,6 +38,6 @@ export const devlogdata =
     },
     {
         "title": "Todo:",
-        "content": "Caching models and assets \n3D procedural scene with controls"
+        "content": "Caching models and assets \n3D procedural scene with controls\nmove glb models to assets folder and import"
     }
 ]
