@@ -14,13 +14,13 @@ export function Terrain() {
         const wVerts = geometry.parameters.widthSegments + 1;
         for (let j = 0; j < hVerts; j++) {
           for (let i = 0; i < wVerts; i++) {
-            const ex = 1.1;
+            const ex = 1.5;
             pa[3 * (j * wVerts + i) + 2] =
-              (noise.simplex2(i / 100, j / 100) +
-                noise.simplex2((i + 200) / 50, j / 50) * Math.pow(ex, 1) +
-                noise.simplex2((i + 400) / 25, j / 25) * Math.pow(ex, 2) +
-                noise.simplex2((i + 600) / 12.5, j / 12.5) * Math.pow(ex, 3) +
-                +(noise.simplex2((i + 800) / 6.25, j / 6.25) * Math.pow(ex, 4))) /
+              (noise.perlin2(i / 100, j / 100) +
+                noise.perlin2((i + 200) / 50, j / 50) * Math.pow(ex, 1) +
+                noise.perlin2((i + 400) / 25, j / 25) * Math.pow(ex, 2) +
+                noise.perlin2((i + 600) / 12.5, j / 12.5) * Math.pow(ex, 3) +
+                +(noise.perlin2((i + 800) / 6.25, j / 6.25) * Math.pow(ex, 4))) /
               2;
           }
         }
@@ -33,13 +33,17 @@ export function Terrain() {
         //assign color based on height
         //normal grass and water biom
         for(let i=0;i < pa.length; i+=3) {
-            if(pa[i+2] > .15){
-                colors.push(0,0.7,0.5)
+            if(pa[i+2] > 2){
+                colors.push(0,0.7,0.5)//light green
             }
-            else if(pa[i+2] > 0) {
-                colors.push(0,0.4,0.1)
-            }else{
-                colors.push(0,0,0.5)
+            else if(pa[i+2] > 1 && pa[i+2] < 2) {
+                colors.push(0,0.2,0.2)// reg green
+            }
+            else if(pa[i+2] > 0 && pa[i+2] < 1) {
+                colors.push(0,0.4,0.1) //dark green
+            }
+            else{
+                colors.push(0,0,0.5) //blue
             }
         }
 
@@ -56,7 +60,7 @@ export function Terrain() {
   return (
     <group>
         <mesh ref={mesh} rotation={[-Math.PI / 2, 0, 0]}>
-        <planeBufferGeometry attach="geometry" args={[25, 25, 128, 128]} />
+        <planeBufferGeometry attach="geometry" args={[48, 48, 150, 150]} />
         <meshPhongMaterial
             vertexColors={THREE.VertexColors}
             attach="material"
