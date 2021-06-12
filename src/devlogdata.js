@@ -35,9 +35,12 @@ export const devlogdata =
     {
         "title": "How to display the dev log:",
         "content": "Used material ui for the dev log anyway! We have come full circle. I just created new devlog data file with an array of section objects with title/content that I built a material page with using the map function and creating components from the callback."
+    },{
+        "title": "Terrain part1:",
+        "content": "First attempts at using perlin noise alg to generate terrain using a plane and coloring based off of vertex Z values."
     },
     {
         "title": "Todo:",
-        "content": "Caching models and assets \n3D procedural scene with controls\nmove glb models to assets folder and import"
+        "content": "Generate/color terrain based on actual heightmaps(improve terrain)!\n3D procedural scene with controls\nmove glb models to assets folder and import\n more styling on homepage"
     }
 ]
