@@ -100,7 +100,7 @@ function AnimationCanvas() {
         <Suspense fallback={null}>
           <Points />
         </Suspense>
-        <Controls/>
+        {/* <Controls/> */}
       </Canvas>
     );
   }
