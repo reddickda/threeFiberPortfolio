@@ -1,11 +1,15 @@
 import React from "react";
-import { useFrame, useUpdate } from "react-three-fiber";
+import { useFrame, useUpdate, useThree } from "react-three-fiber";
 import { noise } from "./Perlin"
 import * as THREE from "three";
 import * as SimplexNoise from "simplex-noise"
 import { BufferGeometryUtils } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 // Attempt at procudural generation of terrain based off noise
 export function Terrain() {
+
+  const {camera} = useThree();
+
+  camera.lookAt( - 100, 810, - 800)
 
     // const mesh = useUpdate(({ geometry }) => {
     //     noise.seed(2);
@@ -172,7 +176,7 @@ export function Terrain() {
   return (
     <group>
         <mesh ref={mesh} rotation={[-Math.PI / 2, 0, 0]}>
-        <planeGeometry attach="geometry" args={[50, 50, 30, 30]} />
+        <planeGeometry attach="geometry" args={[75, 75, 30, 30]} />
         <meshLambertMaterial 
             vertexColors={true}
             attach="material"

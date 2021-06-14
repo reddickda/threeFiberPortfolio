@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { Canvas } from "react-three-fiber";
+import { Canvas, useThree } from "react-three-fiber";
 import { Link } from "react-router-dom";
 import { Lights } from "./Lights";
 import { Terrain } from "./Terrain";
@@ -10,14 +10,14 @@ export default function GameScene() {
   document.getElementById("main").style.display = "none";
   return (
     <div className="anim">
-      <Canvas camera={{ position: [0, 25, 50]}}>
+      <Canvas camera={{ far: 10000, position: [ 0, 5, - 500]}}>
         <Suspense
           fallback={<div>Loading...</div>}
         >
         <Lights />
         <Terrain />
         <Controls />
-        {/* <Sky sunPosition={[7, 5, 1]} /> */}
+        <Sky sunPosition={[7, 5, 1]} />
         </Suspense>
       </Canvas>
       <Link to="/">
