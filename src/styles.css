@@ -112,3 +112,13 @@
     height: 100vh;
     background-color: black;
   }
+
+  #debug-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    image-rendering: pixelated;
+    z-index: 100;
+  }

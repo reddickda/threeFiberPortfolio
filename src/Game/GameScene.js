@@ -10,14 +10,14 @@ export default function GameScene() {
   document.getElementById("main").style.display = "none";
   return (
     <div className="anim">
-      <Canvas camera={{ zoom: 40, position: [0, 0, 500] }}>
+      <Canvas camera={{ position: [0, 25, 50]}}>
         <Suspense
           fallback={<div>Loading...</div>}
         >
         <Lights />
         <Terrain />
         <Controls />
-        <Sky sunPosition={[7, 5, 1]} />
+        {/* <Sky sunPosition={[7, 5, 1]} /> */}
         </Suspense>
       </Canvas>
       <Link to="/">

@@ -39,8 +39,12 @@ export const devlogdata =
         "title": "Terrain part1:",
         "content": "First attempts at using perlin noise alg to generate terrain using a plane and coloring based off of vertex Z values."
     },
+    ,{
+        "title": "Terrain part2:",
+        "content": "Spent a few more hours trying to nail down a good low poly terrain look from procedural generation. Sadly, regular geometries have become deprecated so vertices and colors and position data for large planes to really get the look I want is now extremely difficult to get. Everything is in a buffer, and the vertices just do not want to behave and not blend to really get that low poly look without me building it entirely myself using vertices and color data. Possible, but tedios, and not something to do with noise. The move might just be to pickup blender, create a terrain there, and import. Every resource for procedural generation from before 2021 is now not as useful."
+    },
     {
         "title": "Todo:",
-        "content": "Generate/color terrain based on actual heightmaps(improve terrain)!\n3D procedural scene with controls\nmove glb models to assets folder and import\n more styling on homepage"
+        "content": "\n3D procedural scene with controls\nmove glb models to assets folder and import\n more styling on homepage"
     }
 ]
