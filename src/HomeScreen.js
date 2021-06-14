@@ -27,9 +27,9 @@ export default function HomeScreen() {
     history.push("/devlog");
   }
 
-  document.getElementById("game").onclick = () => {
-    history.push("/game");
-  }
+  // document.getElementById("game").onclick = () => {
+  //   history.push("/game");
+  // }
     return (
       <Canvas pixelRatio={window.devicePixelRatio} camera={{position:[0,0,0], fov:75} } >
         <MainScene />
