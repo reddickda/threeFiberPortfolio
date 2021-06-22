@@ -15,14 +15,16 @@ export default function ProceduralScene() {
   return (
     <div className="anim">
       <Canvas camera={{ position: [ -10,10,-9.5]}}>
-      <Suspense
-          fallback={<mesh></mesh>}
-        ><Sky sunPosition={[0,50,0]} />
-          <Ground />
-          <Player />
-          <directionalLight />
-        <Controls />
-      </Suspense>
+        <gridHelper args={[50, 40, "blue", "hotpink"]}/>
+        <fog attach="fog" args={["#041830", 10, 30]} />
+        <Suspense
+            fallback={<mesh></mesh>}
+          ><Sky sunPosition={[0,50,0]} />
+            <Ground />
+            <Player />
+            <directionalLight />
+          <Controls />
+        </Suspense>
       </Canvas>
       <Link to="/">
             <button id="homeButton" className="ui">Go Back Home</button>
