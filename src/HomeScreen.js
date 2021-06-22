@@ -41,7 +41,6 @@ export default function HomeScreen() {
     const milesTexture = useLoader(TextureLoader, '/miles.jpg');
     const moonTexture = useLoader(TextureLoader, '/moon.jpg');
     const normalTexture = useLoader(TextureLoader, '/normal.jpg');
-    const backgroundTexture = useLoader(TextureLoader, "/coolgradient.jpg")
     const donut = useLoader(GLTFLoader, "/doughnut-P2b.glb");
     const donutRef = useRef();
 
@@ -159,7 +158,7 @@ export default function HomeScreen() {
    function SetBackGround() {
     const loader = new TextureLoader();
   
-    const backgroundTexture = loader.load('/coolgradient.jpg');
+    const backgroundTexture = loader.load('/3dwolf.jpg');
     const {scene} = useThree();
   
     scene.background= backgroundTexture;
