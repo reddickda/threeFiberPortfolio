@@ -48,6 +48,10 @@ export const devlogdata =
         "content": "Controls in 3d scene stopped working, getting memory exceeds in my heroku app, other scene just not working. Frustrated. Commenting things out to have a smaller working project again."
     },
     {
+        "title": "Terrain pt 3, new scene idea:",
+        "content": "Spent a while trying to re implement the Geometry class I wanted but became busy with work and applications so put a plug in that for now and switched to something new. Loading a 3d model with animations and making a lightweight character controller. Ultimately will want to create a full state machine for the character, but simple 3d camera and movement with scrappy animations works for me for now. Going to work on building out the scene a little bit to explore."
+    },
+    {
         "title": "Todo:",
         "content": "\n3D procedural scene with controls\nmove glb models to assets folder and import\n more styling on homepage"
     }
