@@ -11,7 +11,7 @@ export default function ProceduralScene() {
   const [score, setScore] = useState(0);
   return (
     <div className="anim">
-      <Canvas camera={{ position: [ -10,10,-9.5]}}>
+      <Canvas camera={{ position: [ -10,20,-30]}}>
         <gridHelper args={[50, 40, "blue", "hotpink"]}/>
         {/* <fog attach="fog" args={["#041830", 10, 30]} /> */}
         <Suspense
@@ -21,7 +21,6 @@ export default function ProceduralScene() {
             <Boxes />
             <Robot score={score} setScore={setScore}/>
             <directionalLight />
-          <Controls />
         </Suspense>
       </Canvas>
       <Link to="/">
@@ -61,7 +60,7 @@ function Boxes(){
       <boxBufferGeometry />
       <meshStandardMaterial color={'blue'}/>
     </mesh>
-    <mesh scale={[2,2,2]} position={[-12,.5,-15]}>
+    <mesh scale={[2,2,2]} position={[-12,.5,-10]}>
       <boxBufferGeometry />
       <meshStandardMaterial color={'yellow'}/>
     </mesh>

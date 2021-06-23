@@ -35,13 +35,12 @@ export function Robot(props) {
   }
 
   document.getElementById("left").onclick = () => {
-    group.current.rotateY(1)
+    group.current.rotateY(.7)
   }
 
   document.getElementById("right").onclick = () => {
-    group.current.rotateY(-1)
+    group.current.rotateY(-.7)
   }
-
 
   const { setScore, score } = props;
 
@@ -61,7 +60,6 @@ export function Robot(props) {
 
     let currPos = group.current.position;
     boxPositions.forEach(element => {
-      console.log(distance(currPos, element))
       if(distance(currPos, element.pos) < 3 && element.hit == false){
         console.log("hit");
         let newScore = score + 1;
@@ -92,12 +90,10 @@ export function Robot(props) {
     space: false
   };
 
-  // var fired = false;
   document.body.addEventListener( 'keydown', function(e) {
     if (e.repeat) { return }
     var key = e.code.replace('Key', '').toLowerCase();
-    if ( keys[ key ] !== undefined){ // && !fired)
-      // fired=true;
+    if ( keys[ key ] !== undefined){
       if(key=='w'){
         setRunning(true)  
       }
