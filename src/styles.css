@@ -41,6 +41,34 @@
     grid-template-columns: repeat(12, 1fr);
   }
 
+  .left {
+    grid-column: 6 / 12;
+  }
+
+  button {
+    background-color: #4e7e94; /* Green */
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 12px;
+  }
+
+  .ui {
+    position: absolute;
+    left: 0;
+    top:0;
+    /* bottom:0; */
+    padding: 1rem;
+    text-decoration: none;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(0, 0, 0);
+    z-index: 999;
+  }
+@media only screen and (min-width: 600px) {
   h1, h2, h3, blockquote {
     font-family: elevon, sans-serif;
     font-weight: 700;
@@ -63,6 +91,7 @@
     font-size: 1.25rem;
     line-height: 1.5;
     margin-bottom: var(--spacing);
+    border-radius: 12px;
   }
 
   blockquote {
@@ -79,35 +108,6 @@
     display: inline;
     line-height: 1;
   }
-
-  .left {
-    grid-column: 6 / 12;
-  }
-
-  button {
-    background-color: #e7e7e7; /* Green */
-    border: none;
-    color: black;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-  }
-
-  .ui {
-    position: absolute;
-    left: 0;
-    top:0;
-    /* bottom:0; */
-    padding: 1rem;
-    text-decoration: none;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    color: rgb(0, 0, 0);
-    z-index: 999;
-  }
-@media only screen and (min-width: 600px) {
-    
   .hudF {
     visibility:hidden;
   }
@@ -122,7 +122,45 @@
 }
 
 @media only screen and (max-width: 600px) {
-    
+  h1, h2, h3, blockquote {
+    font-family: elevon, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  
+  header {
+    background: var(--dark-bg);
+    grid-column: 2 / span 5;
+    font-size: 1.2rem;
+    padding: 1rem;
+    margin-bottom: var(--spacing);
+  }
+
+  section {
+    grid-column: 2 / 8;
+    padding: 1rem;
+    background: var(--dark-bg);
+    font-size: .8rem;
+    line-height: 1.5;
+    margin-bottom: var(--spacing);
+    border-radius: 12px;
+  }
+
+  blockquote {
+    margin: 0;
+    padding: 0;
+    grid-column: 2 / span 9;
+    margin-bottom: var(--spacing);
+  }
+
+  blockquote p {
+    color: black;
+    background-color: white;
+    font-size: 2rem;
+    display: inline;
+    line-height: 1;
+  }
   .hudF {
     position: absolute;
     left: 70%;
@@ -157,6 +195,18 @@
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     color: rgb(0, 0, 0);
     z-index: 999;
+  }
+
+  button {
+    background-color: #4e7e94; /* Green */
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    border-radius: 12px;
   }
 }
 

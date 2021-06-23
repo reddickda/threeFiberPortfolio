@@ -157,8 +157,13 @@ export default function HomeScreen() {
    //sets the scene background
    function SetBackGround() {
     const loader = new TextureLoader();
-  
-    const backgroundTexture = loader.load('/3dwolf.jpg');
+    var backgroundTexture;
+    
+    if(window.innerWidth > '400'){
+      backgroundTexture = loader.load('/lowpolywide.jpg');
+    }else{
+      backgroundTexture = loader.load('/lowpoly.jpg');
+    }
     const {scene} = useThree();
   
     scene.background= backgroundTexture;
