@@ -8,6 +8,14 @@ import { useFrame, useThree } from "@react-three/fiber";
 import * as THREE from 'three'
 
 const baseHandFeet = [0, 2.37, -0.02];
+let boxPositions = [
+  {pos:[13,.5,1], hit:false},
+  {pos:[-15,.5,11],hit: false}, 
+  {pos:[5,.5,18], hit: false},
+  {pos:[1,.5,5], hit: false}, 
+  {pos:[18,.5,-18], hit: false},
+  {pos:[1,.5,-5], hit: false}, 
+  {pos:[-12,.5,-15], hit: false}]
 
 export function Robot(props) {
   const group = useRef()
@@ -39,6 +47,8 @@ export function Robot(props) {
     keys['d'] = false;
   }
 
+  const { setScore, score } = props;
+
   useEffect(() => {
     if(!running){
       actions.Running.stop();
@@ -52,6 +62,17 @@ export function Robot(props) {
       actions.Idle.stop();
       actions.Running.play();
     }
+
+    let currPos = group.current.position;
+    boxPositions.forEach(element => {
+      console.log(distance(currPos, element))
+      if(distance(currPos, element.pos) < 3 && element.hit == false){
+        console.log("hit");
+        let newScore = score + 1;
+        setScore(newScore);
+        element.hit = true;
+      }
+    });
   }, [running]);
 
   var goal, follow;
@@ -136,10 +157,9 @@ export function Robot(props) {
 
       camera.lookAt( group.current.position );
       // console.log(group.current.position)
-
+     
     //console.log(camera.position)
 })
-
 
   return (
     <group ref={group} {...props} dispose={null}>
@@ -175,3 +195,12 @@ export function Robot(props) {
 }
 
 useGLTF.preload('/RobotExpressive.glb')
+
+function distance(p1, p2) {
+  
+  const a = p2[0] - p1.x;
+  const b = p2[1] - p1.y;
+  const c = p2[2] - p1.z;
+
+  return Math.sqrt(a * a + b * b + c * c);
+}
