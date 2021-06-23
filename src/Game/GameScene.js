@@ -27,12 +27,10 @@ export default function ProceduralScene() {
       <Link to="/">
             <button id="homeButton" className="ui">Go Back Home</button>
       </Link>
-      <section className="light">
         <button className="hudF" id="forward">Forward</button>
         <button className="hudL" id="left">Left</button>
         <button className="hudR" id="right">Right</button>
         <p className="score" id="score">Score: {score}</p>
-      </section>
     </div>
   );
 }

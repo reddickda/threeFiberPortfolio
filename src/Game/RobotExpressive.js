@@ -24,28 +24,24 @@ export function Robot(props) {
   //Dance, Death Idle, Jump, No, Punch, Running, Sitting, Standing, Thumbsup
   const { actions } = useAnimations(animations, group)
   const {camera} = useThree();
-  document.getElementById("forward").touchstart = () => {
-    keys['w'] = true;
-    setRunning(true)
-  }
-  document.getElementById("forward").touchend = () => {
-    keys['w'] = false;
-    setRunning(false)
-  }
-
-  document.getElementById("left").touchstart = () => {
-    keys['a'] = true;
-  }
-  document.getElementById("left").touchend = () => {
-    keys['a'] = false;
+  document.getElementById("forward").onclick = () => {
+    if(running){
+      keys['w'] = false;
+      setRunning(false);
+    }else{
+      keys['w'] = true;
+      setRunning(true)
+    }
   }
 
-  document.getElementById("right").touchstart = () => {
-    keys['d'] = true;
+  document.getElementById("left").onclick = () => {
+    group.current.rotateY(1)
   }
-  document.getElementById("right").touchend = () => {
-    keys['d'] = false;
+
+  document.getElementById("right").onclick = () => {
+    group.current.rotateY(-1)
   }
+
 
   const { setScore, score } = props;
 
