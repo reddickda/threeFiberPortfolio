@@ -123,14 +123,14 @@ export function Robot(props) {
   useFrame((state, delta) => {
     // mixer?.update(delta);
     camera.lookAt( group.current.position );
-   
+    
     speed = 0.0;
   
     if ( keys.w || running){  
       speed = .03;
     }
-    else if ( keys.s)
-      speed = -.03;
+    // else if ( keys.s)
+    //   speed = -.03;
    
     velocity += ( speed - velocity ) * .3;
     group.current.translateZ( velocity );
