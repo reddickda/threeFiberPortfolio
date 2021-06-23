@@ -30,6 +30,11 @@ export default function ProceduralScene() {
       <Link to="/">
             <button id="homeButton" className="ui">Go Back Home</button>
       </Link>
+      <section class="light">
+        <button className="hudF" id="forward">Forward</button>
+        <button className="hudL" id="left">Left</button>
+        <button className="hudR" id="right">Right</button>
+      </section>
     </div>
   );
 }

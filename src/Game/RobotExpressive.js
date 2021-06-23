@@ -16,6 +16,28 @@ export function Robot(props) {
   //Dance, Death Idle, Jump, No, Punch, Running, Sitting, Standing, Thumbsup
   const { actions } = useAnimations(animations, group)
   const {camera} = useThree();
+  document.getElementById("forward").onmousedown = () => {
+    keys['w'] = true;
+    setRunning(true)
+  }
+  document.getElementById("forward").onmouseup = () => {
+    keys['w'] = false;
+    setRunning(false)
+  }
+
+  document.getElementById("left").onmousedown = () => {
+    keys['a'] = true;
+  }
+  document.getElementById("left").onmouseup = () => {
+    keys['a'] = false;
+  }
+
+  document.getElementById("right").onmousedown = () => {
+    keys['d'] = true;
+  }
+  document.getElementById("right").onmouseup = () => {
+    keys['d'] = false;
+  }
 
   useEffect(() => {
     if(!running){
@@ -49,7 +71,8 @@ export function Robot(props) {
     a: false,
     s: false,
     d: false,
-    w: false
+    w: false,
+    space: false
   };
 
   // var fired = false;
@@ -58,7 +81,9 @@ export function Robot(props) {
     var key = e.code.replace('Key', '').toLowerCase();
     if ( keys[ key ] !== undefined){ // && !fired)
       // fired=true;
-      if(key=='w'){setRunning(true)}
+      if(key=='w'){
+        setRunning(true)  
+      }
       keys[ key ] = true;
     }
   });
@@ -68,7 +93,9 @@ export function Robot(props) {
     var key = e.code.replace('Key', '').toLowerCase();
     if ( keys[ key ] !== undefined )
       keys[ key ] = false;
-      setRunning(false);
+      if(key == 'w'){
+        setRunning(false);
+      }
   });
   console.log(running)
 
@@ -78,19 +105,23 @@ export function Robot(props) {
    
     speed = 0.0;
   
-    if ( keys.w || running ){       
+    if ( keys.w || running){  
       speed = .03;
     }
-    else if ( keys.s )
+    else if ( keys.s)
       speed = -.03;
-  
+   
     velocity += ( speed - velocity ) * .3;
     group.current.translateZ( velocity );
   
-    if ( keys.a )
-    group.current.rotateY(0.05);
-    else if ( keys.d )
-    group.current.rotateY(-0.05);
+    if ( keys.a ){
+      group.current.rotateY(0.05);
+    }
+    else if ( keys.d ){
+      group.current.rotateY(-0.05);
+    }
+    if( keys.space) {
+    }
     
     a.lerp(group.current.position, 0.4);
     b.copy(goal.position);

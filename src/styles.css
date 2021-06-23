@@ -107,6 +107,42 @@
     z-index: 999;
   }
 
+  .hudF {
+    position: absolute;
+    left: 45%;
+    top:0;
+    /* bottom:0; */
+    padding: 1rem;
+    text-decoration: none;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(0, 0, 0);
+    z-index: 999;
+  }
+
+  .hudL {
+    position: absolute;
+    left: 40%;
+    top:0;
+    /* bottom:0; */
+    padding: 1rem;
+    text-decoration: none;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(0, 0, 0);
+    z-index: 999;
+  }
+
+  .hudR {
+    position: absolute;
+    left: 50%;
+    top:0;
+    /* bottom:0; */
+    padding: 1rem;
+    text-decoration: none;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(0, 0, 0);
+    z-index: 999;
+  }
+
   .anim {
     width:100vw;
     height: 100vh;
