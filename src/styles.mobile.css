@@ -1,0 +1,62 @@
+@media only screen and (max-width: 600px) { 
+    header {
+      font-size: 1.2rem;
+      padding: 1rem;
+    }
+  
+    section {
+      font-size: .8rem;
+    }
+  
+    blockquote p {
+      font-size: 2rem;
+    }
+    
+    .hudF {
+      position: absolute;
+      left: 70%;
+      top:0;
+      /* bottom:0; */
+      padding: 1rem;
+      text-decoration: none;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: rgb(0, 0, 0);
+      z-index: 999;
+    }
+  
+    .hudL {
+      position: absolute;
+      left: 70%;
+      top:10%;
+      /* bottom:0; */
+      padding: 1rem;
+      text-decoration: none;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: rgb(0, 0, 0);
+      z-index: 999;
+    }
+  
+    .hudR {
+      position: absolute;
+      left: 70%;
+      top:20%;
+      /* bottom:0; */
+      padding: 1rem;
+      text-decoration: none;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: rgb(0, 0, 0);
+      z-index: 999;
+    }
+  
+    button {
+      background-color: #4e7e94; /* Green */
+      border: none;
+      color: black;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 13px;
+      border-radius: 12px;
+    }
+  }

@@ -6,7 +6,7 @@ import {Robot} from './RobotExpressive'
 import Controls from "../Controls"; 
 import { Sky } from "@react-three/drei";
 
-export default function ProceduralScene() {
+export default function GameScene() {
   document.getElementById("main").style.display = "none";
   const [score, setScore] = useState(0);
   return (

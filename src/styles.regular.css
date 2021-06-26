@@ -1,0 +1,23 @@
+@media only screen and (min-width: 600px) {
+    header {
+      font-size: 2.5rem;
+      padding: 2rem;
+    }
+    section {
+      font-size: 1.25rem;
+    } 
+    blockquote p {
+      font-size: 4rem;
+    }
+    .hudF {
+      visibility:hidden;
+    }
+  
+    .hudL {
+      visibility:hidden;
+    }
+  
+    .hudR {
+      visibility:hidden;
+    }
+  }

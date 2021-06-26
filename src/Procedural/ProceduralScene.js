@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import { Canvas, useThree } from "@react-three/fiber";
 import { Link } from "react-router-dom";
-import { Lights } from "./Lights";
+import { Lights } from "../Game/Lights";
 // import { Terrain } from "./Terrain";
 // import Controls from "../Controls"; 
 // import { Sky } from "@react-three/drei";
