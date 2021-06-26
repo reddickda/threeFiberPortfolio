@@ -7,7 +7,6 @@ import { useGLTF, useAnimations } from '@react-three/drei'
 import { useFrame, useThree } from "@react-three/fiber";
 import * as THREE from 'three'
 
-const baseHandFeet = [0, 2.37, -0.02];
 let boxPositions = [
   {pos:[13,.5,1], hit:false},
   {pos:[-15,.5,11],hit: false}, 
@@ -57,30 +56,20 @@ export function Robot(props) {
       actions.Idle.stop();
       actions.Running.play();
     }
-
-    let currPos = group.current.position;
-    boxPositions.forEach(element => {
-      if(distance(currPos, element.pos) < 3 && element.hit == false){
-        console.log("hit");
-        let newScore = score + 1;
-        setScore(newScore);
-        element.hit = true;
-      }
-    });
   }, [running]);
 
   var goal, follow;
 
-  var dir = new THREE.Vector3;
-  var a = new THREE.Vector3;
-  var b = new THREE.Vector3;
+  var dir = new THREE.Vector3();
+  var a = new THREE.Vector3();
+  var b = new THREE.Vector3();
   var coronaSafetyDistance = 0.3;
   var velocity = 0.0;
   var speed = 0.0;
 
 
-  goal = new THREE.Object3D;
-  follow = new THREE.Object3D;
+  goal = new THREE.Object3D();
+  follow = new THREE.Object3D();
   goal.position.z = -coronaSafetyDistance;
   let keys = {
     a: false,
@@ -94,7 +83,7 @@ export function Robot(props) {
     if (e.repeat) { return }
     var key = e.code.replace('Key', '').toLowerCase();
     if ( keys[ key ] !== undefined){
-      if(key=='w'){
+      if(key==='w'){
         setRunning(true)  
       }
       keys[ key ] = true;
@@ -106,13 +95,22 @@ export function Robot(props) {
     var key = e.code.replace('Key', '').toLowerCase();
     if ( keys[ key ] !== undefined )
       keys[ key ] = false;
-      if(key == 'w'){
+      if(key === 'w'){
         setRunning(false);
       }
   });
   console.log(running)
 
   useFrame((state, delta) => {
+    let currPos = group.current.position;
+    boxPositions.forEach(element => {
+      if(distance(currPos, element.pos) < 3 && element.hit === false){
+        console.log("hit");
+        let newScore = score + 1;
+        setScore(newScore);
+        element.hit = true;
+      }
+    });
     // mixer?.update(delta);
     camera.lookAt( group.current.position );
     

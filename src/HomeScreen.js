@@ -114,7 +114,6 @@ export default function HomeScreen() {
   function SetTextures({ textures }) {
     const milesRef = useRef();
     const moonRef = useRef();
-    const donutRef = useRef();
     // const [last, setLast] = useState();
 
     const { camera } = useThree();

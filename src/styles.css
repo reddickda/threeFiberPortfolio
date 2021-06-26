@@ -119,7 +119,10 @@ canvas {
 
   blockquote p {
     color: black;
-    background-color: white;
     display: inline;
     line-height: 1;
+  }
+
+  a {
+    color: #4e7e94
   }

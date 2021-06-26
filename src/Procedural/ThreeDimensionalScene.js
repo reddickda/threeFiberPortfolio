@@ -1,9 +1,8 @@
-import './styles.css'
 import { Canvas, useLoader, useFrame, useThree, extend  } from "@react-three/fiber";
 import { Link } from "react-router-dom";
 import { TextureLoader } from 'three';
 import { Suspense, useMemo, useCallback, useRef } from 'react';
-import Controls from "./Controls"; 
+import Controls from "../Controls"; 
 
 function Points() {
     const cicleTexture = useLoader(TextureLoader, '/circle.png');
@@ -32,7 +31,7 @@ function Points() {
         }
 
         return new Float32Array(positions);
-    }, [count, sep]);
+    }, [count, sep, graph]);
 
     useFrame(() => {
         t += 15
@@ -100,7 +99,7 @@ function AnimationCanvas() {
         <Suspense fallback={null}>
           <Points />
         </Suspense>
-        {/* <Controls/> */}
+        <Controls/>
       </Canvas>
     );
   }

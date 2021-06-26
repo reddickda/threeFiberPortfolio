@@ -1,6 +1,6 @@
 @media only screen and (max-width: 600px) { 
     header {
-      font-size: 1.2rem;
+      font-size: 1rem;
       padding: 1rem;
     }
   
@@ -11,7 +11,7 @@
     blockquote p {
       font-size: 2rem;
     }
-    
+
     .hudF {
       position: absolute;
       left: 70%;

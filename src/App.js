@@ -4,7 +4,7 @@ import {
   Route
 } from "react-router-dom";
 import HomeScreen from './HomeScreen';
-import ThreeDimensionalScene from './ThreeDimensionalScene';
+import ThreeDimensionalScene from './Procedural/ThreeDimensionalScene';
 import Devlog from './DevLog';
 import GameScene from "./Game/GameScene";
 // import ProceduralScene from "./Procedural/ProceduralScene";

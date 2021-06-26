@@ -1,8 +1,5 @@
 import { useRef } from 'react'
 
-const GROUND_HEIGHT = -50; // A Constant to store the ground height of the game.
-
-// A Ground plane that moves relative to the player. The player stays at 0,0
 export function Ground() {
   const ground = useRef();
 
