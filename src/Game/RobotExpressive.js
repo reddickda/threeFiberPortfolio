@@ -129,6 +129,21 @@ export function Robot(props) {
     if(gameStart) {
       speed = 0;
     }
+
+    //boundaries, reset position
+    if(group.current.position.x >48) {
+      group.current.position.x -= 2;
+    }
+    if(group.current.position.x <-1) {
+      group.current.position.x += 2;
+    }
+    if(group.current.position.z >47) {
+      group.current.position.z -= 2;
+    }
+    if(group.current.position.z <-2) {
+      group.current.position.z += 2;
+    }
+
     // else if ( keys.s)
     //   speed = -.03;
    
