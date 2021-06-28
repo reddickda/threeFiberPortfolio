@@ -41,7 +41,13 @@ export function Robot(props) {
     group.current.rotateY(-.7)
   }
 
-  const { setScore, score } = props;
+  const { setScore, score, gameStart, boxes } = props;
+
+  //reset box positions based on poisson generation from gamescene
+  for(var i = 0; i < 7; i++) {
+    boxPositions[i].pos[0] = boxes[i][0];
+    boxPositions[i].pos[2] = boxes[i][1];
+  }
 
   useEffect(() => {
     if(!running){
@@ -99,7 +105,7 @@ export function Robot(props) {
         setRunning(false);
       }
   });
-  console.log(running)
+  // console.log(running)
 
   useFrame((state, delta) => {
     let currPos = group.current.position;
@@ -118,6 +124,10 @@ export function Robot(props) {
   
     if ( keys.w || running){  
       speed = .03;
+    }
+    //checks if game is over/begun
+    if(gameStart) {
+      speed = 0;
     }
     // else if ( keys.s)
     //   speed = -.03;
@@ -144,7 +154,6 @@ export function Robot(props) {
       
       // camera.position.lerp(temp, 0.2);
       // camera.translateZ(velocity);
-
       camera.lookAt( group.current.position );
       // console.log(group.current.position)
      
@@ -152,7 +161,7 @@ export function Robot(props) {
 })
 
   return (
-    <group ref={group} {...props} dispose={null}>
+    <group position={[20, .5, -0.02]} ref={group} {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
         <primitive object={nodes.Bone} />
       </group>

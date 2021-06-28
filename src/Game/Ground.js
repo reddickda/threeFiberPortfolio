@@ -6,7 +6,7 @@ export function Ground() {
   return (
     <mesh
       visible
-      position={[0, 0, 0]}
+      position={[24, 0, 24]}
       rotation={[-Math.PI / 2, 0, 0]}
       ref={ground}
     >

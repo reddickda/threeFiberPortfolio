@@ -54,5 +54,9 @@ export const devlogdata =
     {
         "title": "Actual semblence of gameplay",
         "content": "Added html controls for mobile. Robot can walk around, run animation is smooth, transition to idle not great but works. Can go around and touch a box and increase score."
+    },
+    {
+        "title": "Mainmenu/gameover",
+        "content": "When you start the game, display a start menu and disable movement by setting speed to 0, when you reach a certain score, display menu and pause movement again."
     }
 ]
