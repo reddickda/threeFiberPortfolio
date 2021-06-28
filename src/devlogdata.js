@@ -57,6 +57,6 @@ export const devlogdata =
     },
     {
         "title": "Mainmenu/gameover",
-        "content": "When you start the game, display a start menu and disable movement by setting speed to 0, when you reach a certain score, display menu and pause movement again."
+        "content": "When you start the game, display a start menu and disable movement by setting speed to 0, when you reach a certain score, display menu and pause movement again. The boxes reshifting every time you get to one is because it rerenders but holds that state for touched box, this came from me being too lazy to prevent re renders and I liked the way it played."
     }
 ]

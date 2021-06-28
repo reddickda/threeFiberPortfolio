@@ -123,7 +123,7 @@ export function Robot(props) {
     speed = 0.0;
   
     if ( keys.w || running){  
-      speed = .03;
+      speed = .05;
     }
     //checks if game is over/begun
     if(gameStart) {
