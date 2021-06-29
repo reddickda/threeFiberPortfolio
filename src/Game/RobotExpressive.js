@@ -18,8 +18,8 @@ export function Robot({ gameStart }) {
   //Dance, Death Idle, Jump, No, Punch, Running, Sitting, Standing, Thumbsup
   const { actions } = useAnimations(animations, group)
   const {camera} = useThree();
+  //we arent managing box hits with a state function
   const boxes = useStore(state => state.boxes);
-  // const boxes = useStore(state => state.boxes)
 
   document.getElementById("forward").onclick = () => {
     if(running){
@@ -107,8 +107,8 @@ export function Robot({ gameStart }) {
     boxes.forEach(element => {
       if(distance(currPos, element.pos) < 3 && element.hit === false){
         //if we hit a box, callback
-        nonReactCallbackIncreaseScore();
         element.hit = true;
+        nonReactCallbackIncreaseScore();
       }
     });
     // mixer?.update(delta);

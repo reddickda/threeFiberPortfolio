@@ -6,7 +6,7 @@ import {Robot} from './RobotExpressive'
 import { Sky } from "@react-three/drei";
 import { Boxes } from './Boxes';
 import { MainMenu } from "./MainMenu";
-import { useStore, nonReactCallbackResetScore, nonReactCallbackResetBoxes } from './GameStore';
+import { useStore,nonReactCallbackResetScore, nonReactCallbackResetBoxes } from './GameStore';
 // import Controls from "../Controls"; 
 
 export default function GameScene() {
