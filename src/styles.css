@@ -51,7 +51,7 @@ canvas {
     border-radius: 12px;
   }
 
-  .ui {
+  .homeButton {
     position: absolute;
     left: 0;
     top:0;

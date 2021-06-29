@@ -21,7 +21,7 @@ export default function ProceduralScene() {
         </Suspense>
       </Canvas>
       <Link to="/">
-            <button id="homeButton" className="ui">Go Back Home</button>
+            <button id="homeButton" className="homeButton">Go Back Home</button>
       </Link>
     </div>
   );

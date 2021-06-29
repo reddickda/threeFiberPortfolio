@@ -85,7 +85,7 @@ export default function ThreeDimensionalScene() {
             <AnimationCanvas />
         </Suspense>
         <Link to="/">
-            <button id="homeButton" className="ui">Go Back Home</button>
+            <button id="homeButton" className="homeButton">Go Back Home</button>
         </Link>
     </div>);
 }
