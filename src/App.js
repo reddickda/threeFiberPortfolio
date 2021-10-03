@@ -19,7 +19,7 @@ export default function App() {
         <Route path="/three" exact> <ThreeDimensionalScene /></Route>
         <Route path="/devlog" exact> <Devlog /></Route>
         <Route path="/game" exact> <GameScene /></Route>
-        {/* <Route path="/procedural" exact><ProceduralScene /></Route> */}
+        <Route path = "/SnailEscape" exact><SnailEscapeScene/></Route>
       </Switch>
     </div>
   );

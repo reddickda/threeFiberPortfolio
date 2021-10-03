@@ -30,6 +30,7 @@ export default function HomeScreen() {
   document.getElementById("game").onclick = () => {
     history.push("/game");
   }
+
     return (
       <Canvas pixelRatio={window.devicePixelRatio} camera={{position:[0,0,0], fov:75} } >
         <MainScene />
