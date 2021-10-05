@@ -1,6 +1,7 @@
 # Personal react-three-fiber portfolio
 
-The purpose of this project is to be my personal portfolio where I can add any 3D design/scenes/games
+The purpose of this project is to be my personal portfolio where I can add any 3D design/scenes/games.
+
 It is live [Here](https://www.davidthehobbyist.com/) hosted via a [Heroku](https://www.heroku.com) App
  
 ## The Stack
