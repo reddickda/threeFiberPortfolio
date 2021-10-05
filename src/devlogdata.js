@@ -62,5 +62,9 @@ export const devlogdata =
     {
         "title": "Global/gamestate",
         "content": "Moving gamestate and state-related things to a Zustand store now rather than later to save headache down the road. Start with boxes, score and playstate."
+    },
+    {
+        "title": "Check in post unity",
+        "content": "Currently writing a game in unity SnailEscape. It is hosted live on simmer.io. Wanted a free and live-updated leaderboard, so I figured out how to setup a heroku postgres addon, created a table via the cli and used npgsql package in Unity to connect to it."
     }
 ]
