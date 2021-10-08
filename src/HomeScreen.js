@@ -23,9 +23,10 @@ export default function HomeScreen() {
     history.push("/three");
   }
 
-  document.getElementById("devlog").onclick = () => {
-    history.push("/devlog");
-  }
+  // document.getElementById("devlog").onclick = () => {
+  //   history.push("/devlog");
+  // }
+  // document.getElementById("devlog").style.display = "none";
 
   document.getElementById("game").onclick = () => {
     history.push("/game");
