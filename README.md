@@ -2,7 +2,9 @@
 
 The purpose of this project is to be my personal portfolio where I can add any 3D design/scenes/games.
 
-It is live [Here](https://www.davidthehobbyist.com/) hosted via a [Heroku](https://www.heroku.com) App
+It is live [Here](https://www.davidthehobbyist.com/) hosted via a [Heroku](https://www.heroku.com) App.
+
+The files are served via a Node Express server so that I could setup an api to communicate with the Postgresql DB through the Javascript. This enables my Unity WebGL projects to communicate with the Heroku Database as well.
  
 ## The Stack
 
