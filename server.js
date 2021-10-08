@@ -6,8 +6,9 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const { Client } = require('pg');
 app.use(cors({
-    origin: ['https://simmer.io', 'https://david-portfolio-site.herokuapp.com/', 'https://www.davidthehobbyist.com/', 'http://www.davidthehobbyist.com/', 'https://david-portfolio-site.herokuapp.com/scores']
-}));
+    // origin: ['https://simmer.io', 'https://david-portfolio-site.herokuapp.com/', 'https://www.davidthehobbyist.com/', 'http://www.davidthehobbyist.com/', 'https://david-portfolio-site.herokuapp.com/scores']
+    origin: '*'
+  }));
 app.use(express.static(path.join(__dirname, "build")));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
