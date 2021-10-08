@@ -33,7 +33,7 @@ app.get("/scores", (req, response) => {
     }
     if(results !== undefined){
       for (let row of results.rows) {
-        rows.push(JSON.stringify(row));
+        rows.push(row);
       }
       response.json({ message: rows });
     }
