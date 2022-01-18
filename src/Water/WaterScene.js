@@ -16,12 +16,12 @@ export default function WaterScene() {
         <Link to="/">
             <button id="homeButton" className="homeButton">Go Back Home</button>
       </Link>
-      <section style={{position:'absolute', left:'0%', top:'75%', zIndex:999, opacity:'1', alignContent:'center'}}>
+      <section style={{position:'absolute', left:'50%', top:'0%', zIndex:999, opacity:'1', alignContent:'center'}}>
       <h1 style={{color:'white'}}>Experimenting with noise:</h1>
-        <p style={{color:'white'}}>Top: PlaneBufferGeometry updating z vertices using Perlin noise, Calm water.</p>
-        <p style={{color:'white'}}>Second: PlaneBufferGeometry updating z vertices using math.random, Electric current.</p>
-        <p style={{color:'white'}}>Third: PlaneBufferGeometry updating z vertices using different Perlin noise. More Like rough seas.</p>
-        <p style={{color:'white'}}>Last: BoxBufferGeometry updating top face z veterices using Random function. This one was tricky because the vertices are in a long 1D array and it took trial and error to find the correct vertice range to update to only affect the top face.</p>
+        <p style={{color:'white'}}>Top: PlaneBufferGeometry Calm water.</p>
+        <p style={{color:'white'}}>Second: PlaneBufferGeometry Electric current.</p>
+        <p style={{color:'white'}}>Third: PlaneBufferGeometry Rough seas.</p>
+        <p style={{color:'white'}}>Last: BoxBufferGeometry.</p>
       </section>
     </div>)
 }
