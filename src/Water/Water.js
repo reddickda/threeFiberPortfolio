@@ -79,7 +79,7 @@ export default function Water(){
 
     return(
     <group><mesh ref={plane} visible
-        position={[-40, 0, -10]}
+        position={[-30, 0, -10]}
         rotation={[-190, 0, 20]}
       >
         <planeBufferGeometry attach="geometry" args={[50, 50, 24, 24]}/>
