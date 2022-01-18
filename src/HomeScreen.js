@@ -23,6 +23,9 @@ export default function HomeScreen() {
     history.push("/three");
   }
 
+  document.getElementById("water").onclick = () => {
+    history.push("/water");
+  }
   // document.getElementById("devlog").onclick = () => {
   //   history.push("/devlog");
   // }
