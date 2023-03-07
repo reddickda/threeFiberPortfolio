@@ -2,7 +2,6 @@ import { useLayoutEffect, useRef, useCallback } from 'react'
 import { noise } from "../Game/Perlin"
 import { useFrame } from "@react-three/fiber";
 import Perlin from './WaterNoise'
-import Roboto from '../Fonts/Roboto.json'
 
 import * as THREE from "three"
 
@@ -160,17 +159,3 @@ function Water3() {
         /></mesh>)
 }
 
-function ThreeDText() {
-
-    const font = new THREE.FontLoader().parse(Roboto);
-    // configure font geometry
-    const textOptions = {
-      font,
-      size: 5,
-      height: 1
-    };
-    return (<mesh>
-        <textGeometry attach='geometry' args={['three.js', textOptions]} />
-        <meshStandardMaterial attach='material' />
-      </mesh>)
-}
