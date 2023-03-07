@@ -1,7 +1,6 @@
 {
   "name": "three-fiber-portfolio",
   "version": "0.1.0",
-  "homepage": "https://reddickda.github.io/threeFiberPortfolio",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.4",
