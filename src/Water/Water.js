@@ -153,7 +153,8 @@ function Water3() {
           color="blue"
           roughness={1}
           metalness={0}
-          wireframe
+          castShadow
+          receiveShadow
           side={THREE.DoubleSide}
           
         /></mesh>)

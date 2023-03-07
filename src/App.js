@@ -8,6 +8,7 @@ import ThreeDimensionalScene from './Procedural/ThreeDimensionalScene';
 import Devlog from './DevLog';
 import GameScene from "./Game/GameScene";
 import WaterScene from "./Water/WaterScene"
+import HexTerrain from "./Procedural/HexTerrain/HexTerrain";
 // import ProceduralScene from "./Procedural/ProceduralScene";
 
 export default function App() {
@@ -21,7 +22,7 @@ export default function App() {
         <Route path="/devlog" exact> <Devlog /></Route>
         <Route path="/game" exact> <GameScene /></Route>
         <Route path="/water" exact> <WaterScene /></Route>
-
+        <Route path="/terrain" exact><HexTerrain/></Route>
         {/* <Route path="/procedural" exact><ProceduralScene /></Route> */}
       </Switch>
     </div>

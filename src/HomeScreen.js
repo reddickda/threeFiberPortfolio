@@ -36,7 +36,7 @@ export default function HomeScreen() {
   }
 
     return (
-      <Canvas pixelRatio={window.devicePixelRatio} camera={{position:[0,0,0], fov:75} } >
+      <Canvas style={{backgroundColor: "gray"}} pixelRatio={window.devicePixelRatio} camera={{position:[0,0,0], fov:75} } >
         <MainScene />
       </Canvas>
     );
@@ -88,9 +88,10 @@ export default function HomeScreen() {
 
           <pointLight position={[5,5,5]} color="0xffffff"/>
           <ambientLight intensity={0.2}/>
-          <SetBackGround />
+          {/* <SetBackGround /> */}
           {addStars()}
-          <SetTextures textures={[milesTexture, moonTexture, normalTexture]}/>
+          
+          {/* <SetTextures textures={[milesTexture, moonTexture, normalTexture]}/> */}
           <primitive position={[7,2,-4]} rotation={[2.5,3,0]} ref={donutRef} object={donut.scene}></primitive>
         </scene>
      );
@@ -170,6 +171,7 @@ export default function HomeScreen() {
     }
     const {scene} = useThree();
   
-    scene.background= backgroundTexture;
+    // scene.background= backgroundTexture;
+
     return null;
   }
