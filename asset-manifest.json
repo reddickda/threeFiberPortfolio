@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/threeFiberPortfolio/static/css/main.ab283cd2.css",
+    "main.js": "/threeFiberPortfolio/static/js/main.13f6a043.js",
+    "index.html": "/threeFiberPortfolio/index.html",
+    "main.ab283cd2.css.map": "/threeFiberPortfolio/static/css/main.ab283cd2.css.map",
+    "main.13f6a043.js.map": "/threeFiberPortfolio/static/js/main.13f6a043.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ab283cd2.css",
+    "static/js/main.13f6a043.js"
+  ]
+}
