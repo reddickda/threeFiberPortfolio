@@ -14,7 +14,7 @@ const INITIAL_Z = -0.02;
 export function Robot({ gameStart }) {
   const group = useRef()
   const [running, setRunning] = useState(false);
-  const { nodes, materials, animations } = useGLTF('/RobotExpressive.glb')
+  const { nodes, materials, animations } = useGLTF('RobotExpressive.glb')
   //Dance, Death Idle, Jump, No, Punch, Running, Sitting, Standing, Thumbsup
   const { actions } = useAnimations(animations, group)
   const {camera} = useThree();
@@ -205,7 +205,7 @@ export function Robot({ gameStart }) {
   )
 }
 
-useGLTF.preload('/RobotExpressive.glb')
+useGLTF.preload('RobotExpressive.glb')
 
 function distance(p1, p2) {
   
