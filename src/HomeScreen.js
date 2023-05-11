@@ -36,7 +36,7 @@ export default function HomeScreen() {
   }
 
     return (
-      <Canvas style={{backgroundColor: "gray"}} pixelRatio={window.devicePixelRatio} camera={{position:[0,0,0], fov:75} } >
+      <Canvas style={{backgroundColor: "#303030"}} pixelRatio={window.devicePixelRatio} camera={{position:[0,0,0], fov:75} } >
         <MainScene />
       </Canvas>
     );
@@ -71,10 +71,25 @@ export default function HomeScreen() {
       donutRef.current.rotation.copy( camera.rotation );
       donutRef.current.updateMatrix();
       donutRef.current.translateZ( - 4 );
-      if(window.innerWidth < 500) {
+      if(window.innerWidth < 1500 && window.innerWidth > 1300) {
+        donutRef.current.translateX(3);
+      }
+      else if(window.innerWidth < 1300 && window.innerWidth > 1200) {
+        donutRef.current.translateX(2.8);
+      }
+      else if(window.innerWidth < 1200 && window.innerWidth > 1000) {
+        donutRef.current.translateX(2.2);
+      }
+      else if(window.innerWidth < 1000 && window.innerWidth > 800) {
+        donutRef.current.translateX(1.5);
+      }
+      else if(window.innerWidth <= 800 && window.innerWidth > 500) {
+        donutRef.current.translateX(1);
+      }
+      else if(window.innerWidth < 500) {
         donutRef.current.translateX(.8);
       }else{
-        donutRef.current.translateX(4);
+        donutRef.current.translateX(3.5);
       }
       //will need to deal with screen size
       // donutRef.current.translateX(w/10);

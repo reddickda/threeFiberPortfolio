@@ -1,13 +1,13 @@
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 700px) {
     header {
-      font-size: 2.5rem;
+      font-size: 2rem;
       padding: 2rem;
     }
     section {
       font-size: 1.25rem;
     } 
     blockquote p {
-      font-size: 4rem;
+      font-size: 2rem;
     }
     .hudF {
       visibility:hidden;
