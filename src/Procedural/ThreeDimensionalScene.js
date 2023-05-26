@@ -17,8 +17,9 @@ function Points() {
     }, [t, f, a])
 
     let count = 100;
-    let sep = 3;
+    let sep = 2;
     let positions = useMemo(() => {
+      console.log("here")
         let positions = [];
 
         for(let xi = 0; xi < count; xi++) {
@@ -34,9 +35,9 @@ function Points() {
     }, [count, sep, graph]);
 
     useFrame(() => {
-        t += 15
+        t += 1
         
-        const positions = bufferRef.current.array;
+        const positionBuffer = bufferRef.current.array;
     
         let i = 0;
         for (let xi = 0; xi < count; xi++) {
@@ -44,7 +45,7 @@ function Points() {
             let x = sep * (xi - count / 2);
             let z = sep * (zi - count / 2);
     
-            positions[i + 1] = graph(x, z);
+            positionBuffer[i + 1] = graph(x, z);
             //every 3rd item aka y
             i += 3;
           }
